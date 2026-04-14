@@ -1,34 +1,35 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/d5nOy1eX)
 
-**commands used in q3:** <br/>
-    to convert binary to riscv: <br/>
+## **commands used in q3:** <br/>
+###    Convert binary to riscv: <br/>
         ```riscv64-linux-gnu-objdump -d target_abhipsamishra2912 > layout.txt```
         <br/>
-    to enable execute permission: <br/>
+### Enable execute permission: <br/>
         ```chmod +x target_abhipsamishra2912```
         <br/>
-    to find main in the layout.txt:
+### Find main in the layout.txt:
     <br/>
         ```grep -n "<main>" layout.txt```
         <br/>
-    then from the found address i did:<br/>
+###   then from the found address i did:<br/>
         ```sed -n '208,270p' layout.txt```
 <br/>
-        ``` objdump -s --section=.rodata target_abhipsamishra2912 | less ```
+        ```objdump -s --section=.rodata target_abhipsamishra2912 | less```
 
 <br/>
-        ``` python3 -c "
+        python3 -c "
             with open('target_abhipsamishra2912', 'rb') as f:
             f.seek(0x4e091)
             data = f.read(64)
             password = data.split(b'\x00')[0].decode('ascii')
             print(password)
-        " ```
-
+        "
+<br/>
         ```echo -n "KaIZoWc81XOgReo2Tc/jWnbeN57fJHqZk2PTu1fyzxE=" > payload.txt```
+
         ```./target_abhipsamishra2912 < payload.txt```
 
-**alternate way for q3 a:**
+## **alternate way for q3 a:**
     using gdb
 
     sudo apt install gdb-multiarch qemu-user
