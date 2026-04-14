@@ -12,11 +12,9 @@
         ```grep -n "<main>" layout.txt```
         <br/>
 ###   then from the found address i did:<br/>
-        ```sed -n '208,270p' layout.txt```
-<br/>
-        ```objdump -s --section=.rodata target_abhipsamishra2912 | less```
+        ```sed -n '208,270p' layout.txt``` <br/>
+        ```objdump -s --section=.rodata target_abhipsamishra2912 | less``` <br/>
 
-<br/>
         python3 -c "
             with open('target_abhipsamishra2912', 'rb') as f:
             f.seek(0x4e091)
@@ -30,9 +28,10 @@
         ```./target_abhipsamishra2912 < payload.txt```
 
 ## **alternate way for q3 a:**
-    using gdb
+### using gdb
 
-    sudo apt install gdb-multiarch qemu-user
+    ```sudo apt install gdb-multiarch qemu-user```
+    <br/>
 
     in current window: echo "hello" | qemu-riscv64 -g 1234 ./target_abhipsamishra2912
     in another window: gdb-multiarch ./target_abhipsamishra2912
