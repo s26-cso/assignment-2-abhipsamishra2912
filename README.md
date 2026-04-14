@@ -31,12 +31,14 @@
 ### using gdb
 
     ```sudo apt install gdb-multiarch qemu-user```
-    <br/>
 
-    in current window: echo "hello" | qemu-riscv64 -g 1234 ./target_abhipsamishra2912
-    in another window: gdb-multiarch ./target_abhipsamishra2912
+    in current window:
+    ```echo "hello" | qemu-riscv64 -g 1234 ./target_abhipsamishra2912```
+    in another window: 
+    ```gdb-multiarch ./target_abhipsamishra2912```
 
-    in gdb: target remote localhost:1234
+    in gdb: 
+    ```target remote localhost:1234```
             disassemble main
             address right before strcmp is 0x1064c
             so break *0x1064c
